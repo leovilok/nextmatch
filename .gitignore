@@ -1,0 +1,5 @@
+nextmatch
+*.o
+
+*~
+*.swp
