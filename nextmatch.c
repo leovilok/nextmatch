@@ -21,12 +21,14 @@ int main(int argc, char *argv[]) {
   size_t len = 0;
   ssize_t read;
 
-  // we could maybe take a file as an argument
-  fp = stdin;
+  if(argc >= 3)
+	  fp = fopen(argv[2],"r");
+  else
+	  fp = stdin;
 
   key = argv[1];
 
-  if (fp == NULL || argc != 2 || key == NULL)
+  if (fp == NULL || argc < 2 || key == NULL)
     exit(EXIT_FAILURE);
 
   while ((read = getline(&line, &len, fp)) != -1) {
